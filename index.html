@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>word scramle</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src ="js\script.js"></script>
+    <title>word scramble</title>
+     <link rel="icon" href="img\icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style1.css">
+    <script type="module" src ="js\script1.js"></script>
     <script type="module" src ="js\words.js" ></script>
 </head>
 <body>
+    <div class="start active">
+        <div class="content">
+            <h2>Word Scramble</h2>
+            <div class="instruction">you will have 30 seconds to guess the correct word. </div>
+            <button class="play">PLAY</button>
+        </div>
+    </div>
+
+
+    <div class="modal">
+        <div class="content">
+            <img src="img/confetti.gif" alt="confetti">
+            <h4>congratulations</h4>
+            <button class="replay">PLay Again</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
 
     <div class="container">
         <h2> word scramble</h2>
@@ -22,19 +40,24 @@
                 </DIV>
 
             <input type = "text" placeholder="Enter a valid word"> 
+            <div class="message"></div>
             </div>
-            <div class="message">""</div>
+            
 
 
             <div class="buttons">
                 <button class="refresh-word">Refresh Word</button>
-                <button class="check-word">Check Word</button>
+                <button class="check-word" data-modal-target="#modal">Check Word</button>
+                
             </div>
         
 
     </div>
+
     
-    <script src ="js\script.js" ></script>
+
+    
+    <script src ="js\script1.js" ></script>
     <script src ="js\words.js" ></script>
 
 </body>

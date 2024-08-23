@@ -2,6 +2,7 @@ const wordText = document.querySelector(".word");
 const hintText = document.querySelector(".hint span"),
 timeText = document.querySelector(".time b"),
 inputField = document.querySelector("input"),
+message = document.querySelector(".message"),
 refereshBtn =  document.querySelector(".refresh-word"),
 checkBtn = document.querySelector(".check-word");
 
@@ -17,7 +18,8 @@ const initTimer = maxTime => {
         }
 
         clearInterval(timer);
-        alert(`time's upppppppp!!! ${correctWord.toUpperCase()} was the correctWord}`)
+        message.innerText=`time's upppppppp!!! `;
+        message.style.color = 'goldenrod';
         initGame();
     
     },1000);
@@ -51,12 +53,25 @@ initGame();
 
 const checkWord = () => {
     let userWord = inputField.value.toLocaleLowerCase();
-    if(!userWord) return alert("pplease enter a word");
-    if (userWord != correctWord) return alert (`oops! ${userWord} is incorrect.`);
-    alert(`hoooooooooohooh. ${userWord.toUpperCase()} is absolutely correct!!!`);//else is not needed due to the return statement exits the function
+    if(!userWord)
+        {
+            message.style.color = 'goldenrod';
+            return message.innerText= "pplease enter a word";
+            
+
+        } 
+    if (userWord != correctWord) 
+        {
+            message.style.color = 'red';
+            return message.innerText= `oops! ${userWord} is incorrect.`;
+}
+            
+    message.innerText=`hoooooooooohooh. ${userWord.toUpperCase()} is absolutely correct!!!`;//else is not needed due to the return statement exits the function
+    message.style.color = 'green';
     initGame();
 }
 
 refereshBtn.addEventListener("click", initGame);
 
 checkBtn.addEventListener("click", checkWord);
+
